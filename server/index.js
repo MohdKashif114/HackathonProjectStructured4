@@ -3,6 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./db.js";
 import authRoutes from "./routes/auth.js";
+import alumnifetch from "./controllers/alumnifetch.js"
+
+
+
 
 dotenv.config();
 
@@ -17,6 +21,8 @@ connectDB();
 app.get("/", (req, res) => {
   res.send("Alumni Connect Backend is Live! 🚀");
 });
+
+app.get("/alumni",alumnifetch);
 
 app.use("/api", authRoutes);
 
